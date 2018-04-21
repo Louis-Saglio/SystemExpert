@@ -18,10 +18,9 @@ public class Property extends ArrayList<Value> {
         ArrayList<Value> filteredList = new ArrayList<>();
         for (Value value : this) {
             if (value.getId() != filteredValue.getId()) {
-                filteredList.add(filteredValue);
+                filteredList.add(value);
             }
         }
         return filteredList;
     }
-
 }
