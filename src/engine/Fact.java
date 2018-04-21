@@ -11,7 +11,7 @@ public class Fact {
     private Value value;
 
     public Fact(Property property, Value value) {
-        this.id = Helper.generateId();
+        this.id = Helper.getInstance().generateId();
         this.value = value;
         this.property = property;
     }

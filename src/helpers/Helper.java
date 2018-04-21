@@ -2,7 +2,7 @@ package helpers;
 
 public class Helper {
     private static Helper ourInstance = new Helper();
-    private static int idMax;
+    private int idMax;
 
     public static Helper getInstance() {
         return ourInstance;
@@ -11,8 +11,8 @@ public class Helper {
     private Helper() {
     }
 
-    public static int generateId() {
-        Helper.idMax += 1;
-        return Helper.idMax;
+    public int generateId() {
+        this.idMax += 1;
+        return this.idMax;
     }
 }
