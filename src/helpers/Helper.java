@@ -2,7 +2,7 @@ package helpers;
 
 public class Helper {
     private static Helper ourInstance = new Helper();
-    private int idMax;
+    private int idMax = -1;
 
     public static Helper getInstance() {
         return ourInstance;
