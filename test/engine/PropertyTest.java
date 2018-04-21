@@ -24,6 +24,7 @@ public class PropertyTest {
         ArrayList<Value> filtered = property.filter(toBeFiltered);
 
         for (int i = 0; i < toRemain.size(); i++) {
+            Assertions.assertEquals(toRemain.size(), filtered.size());
             Assertions.assertEquals(toRemain.get(i).getId(), filtered.get(i).getId());
         }
     }
