@@ -19,7 +19,11 @@ public class Fact {
         return contraries;
     }
 
-    public boolean equals(Fact fact) {
-        return this.property.equals(fact.property) && this.value == fact.value;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fact fact = (Fact) o;
+        return this.property.equals(fact.property) && this.value.equals(fact.value);
     }
 }

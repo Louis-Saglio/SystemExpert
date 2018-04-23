@@ -19,8 +19,16 @@ public class Property extends ArrayList<Value> {
         return filteredList;
     }
 
-    public boolean equals(Property property) {
-        if (this.size() != property.size()) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Property property = (Property) o;
+        if (!this.name.equals(property.name) || this.size() != property.size()) {
             return false;
         }
         for (int i = 0; i < this.size(); i++) {
