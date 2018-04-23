@@ -19,4 +19,7 @@ public class Fact {
         return contraries;
     }
 
+    public boolean equals(Fact fact) {
+        return this.property.equals(fact.property) && this.value == fact.value;
+    }
 }

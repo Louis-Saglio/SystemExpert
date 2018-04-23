@@ -18,4 +18,16 @@ public class Property extends ArrayList<Value> {
         }
         return filteredList;
     }
+
+    public boolean equals(Property property) {
+        if (this.size() != property.size()) {
+            return false;
+        }
+        for (int i = 0; i < this.size(); i++) {
+            if (!this.get(i).equals(property.get(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
