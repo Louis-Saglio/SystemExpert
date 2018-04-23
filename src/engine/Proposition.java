@@ -22,6 +22,16 @@ public class Proposition {
         return opposites;
     }
 
+    public ArrayList<Proposition> getContraries() {
+        ArrayList<Proposition> contraries = new ArrayList<>();
+        if (this.state) {
+            for (Fact contrary : this.fact.getContraries()) {
+                contraries.add(new Proposition(contrary, this.state));
+            }
+        }
+        return contraries;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
