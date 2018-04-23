@@ -15,7 +15,7 @@ public class Proposition {
     public ArrayList<Proposition> getCorollaries() {
         ArrayList<Proposition> opposites = new ArrayList<>();
         for (Fact fact : this.fact.getContraries()) {
-            opposites.add(new Proposition(fact, false));
+            opposites.add(new Proposition(fact, !this.state));
         }
         return opposites;
     }
