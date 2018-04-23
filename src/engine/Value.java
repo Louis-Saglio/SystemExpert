@@ -1,26 +1,19 @@
 package engine;
 
-import helpers.Helper;
-
 public class Value {
 
-    private int id;
     private String name;
 
     public Value(String name) {
-        this.id = Helper.getInstance().generateId();
         this.name = name;
     }
 
-    public int getId() {
-        return id;
+    public boolean equals(Value value) {
+        return this.name.equals(value.name);
     }
 
     @Override
     public String toString() {
-        return "Value{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Value{" + "id=" + ", name='" + name + '\'' + '}';
     }
 }

@@ -1,17 +1,12 @@
 package engine;
 
-import helpers.Helper;
-
 import java.util.ArrayList;
 
 public class Fact {
-
-    private int id;
     private Property property;
     private Value value;
 
     public Fact(Property property, Value value) {
-        this.id = Helper.getInstance().generateId();
         this.value = value;
         this.property = property;
     }
