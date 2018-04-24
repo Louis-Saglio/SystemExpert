@@ -10,9 +10,9 @@ public class FactTest {
     @Test
     void testGetContraries() {
         Property size = new Property("size");
-        size.add(new Value("big"));
-        size.add(new Value("medium"));
-        size.add(new Value("small"));
+        new Value(size,"big");
+        new Value(size,"medium");
+        new Value(size,"small");
 
         Fact fact = new Fact(size, size.get(0));
 

@@ -12,19 +12,17 @@ public class PropertyTest {
         Property property = new Property("test");
         ArrayList<Value> toRemain = new ArrayList<>();
 
-        Value toBeFiltered = new Value("value1");
-        property.add(toBeFiltered);
+        Value toBeFiltered = new Value(property,"value1");
 
-        toRemain.add(new Value("value2"));
-        toRemain.add(new Value("value3"));
+        new Value(property,"value2");
+        new Value(property,"value3");
 
-        property.add(toRemain.get(0));
-        property.add(toRemain.get(1));
-
+        toRemain.add(property.get(1));
+        toRemain.add(property.get(2));
         ArrayList<Value> filtered = property.filter(toBeFiltered);
 
         for (int i = 0; i < toRemain.size(); i++) {
-
+            // Relies on the fact that toRemain an filtered are ordered
             Assertions.assertEquals(toRemain.size(), filtered.size());
             Assertions.assertEquals(toRemain.get(i), filtered.get(i));
         }

@@ -4,8 +4,9 @@ public class Value {
 
     private String name;
 
-    public Value(String name) {
+    public Value(Property property, String name) {
         this.name = name;
+        property.add(this);
     }
 
     @Override
