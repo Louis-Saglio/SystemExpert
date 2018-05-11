@@ -31,12 +31,4 @@ public class Rule {
     public ArrayList<Proposition> getConclusions() {
         return conclusions;
     }
-
-    @Override
-    public String toString() {
-        return "Rule{" +
-                "majors=" + majors +
-                ", conclusions=" + conclusions +
-                '}';
-    }
 }

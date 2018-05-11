@@ -26,4 +26,20 @@ public class Fact {
         Fact fact = (Fact) o;
         return this.property.equals(fact.property) && this.value.equals(fact.value);
     }
+
+    public Value getValue() {
+        return value;
+    }
+
+    public Property getProperty() {
+        return property;
+    }
+
+    @Override
+    public String toString() {
+        return "Fact{" +
+                "property=" + property +
+                ", value=" + value +
+                '}';
+    }
 }

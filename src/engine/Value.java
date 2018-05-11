@@ -23,6 +23,6 @@ public class Value {
 
     @Override
     public String toString() {
-        return "Value{" + "id=" + ", name='" + name + '\'' + '}';
+        return "Value{" + "name='" + name + '\'' + '}';
     }
 }
