@@ -8,16 +8,31 @@ public class Engine {
     private Rules rules;
 
     public void process() {
-        for (Proposition proposition : this.rules.findNewTruePropositions(this.truth, this.error)) {
+        for (Proposition proposition : this.rules.manageConclusions(this.truth, this.error)) {
             if (!this.truth.contains(proposition)) {
                 this.truth.add(proposition);
             }
         }
-        for (Proposition proposition : this.rules.findNewFalsePropositions(this.truth, this.error)) {
-            if (!this.error.contains(proposition)) {
-                this.error.add(proposition);
+
+        ArrayList<Proposition> news = new ArrayList<>();
+        for (Proposition proposition : this.truth) {
+            for (Proposition corollary : proposition.getCorollaries()) {
+                if (!this.truth.contains(corollary) && !news.contains(corollary)) {
+                    news.add(corollary);
+                }
             }
         }
+        this.truth.addAll(news);
+
+        ArrayList<Proposition> errors = new ArrayList<>();
+        for (Proposition proposition : this.truth) {
+            for (Proposition contrary : proposition.getContraries()) {
+                if (!this.error.contains(contrary) && !errors.contains(contrary)) {
+                    errors.add(contrary);
+                }
+            }
+        }
+        this.error.addAll(errors);
     }
 
     public void setTruth(ArrayList<Proposition> truth) {
