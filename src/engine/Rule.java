@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Rule {
 
-    private Majors majors;
-    private ArrayList<Proposition> conclusions;
+    private Majors majors = new Majors();
+    private ArrayList<Proposition> conclusions = new ArrayList<>();
 
     public ArrayList<Proposition> findNewTruePropositions(ArrayList<Proposition> truth, ArrayList<Proposition> error) {
         ArrayList<Proposition> newPropositions = new ArrayList<>();
@@ -24,4 +24,19 @@ public class Rule {
         return newErrors;
     }
 
+    public Majors getMajors() {
+        return majors;
+    }
+
+    public ArrayList<Proposition> getConclusions() {
+        return conclusions;
+    }
+
+    @Override
+    public String toString() {
+        return "Rule{" +
+                "majors=" + majors +
+                ", conclusions=" + conclusions +
+                '}';
+    }
 }
