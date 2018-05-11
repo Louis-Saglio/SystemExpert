@@ -80,4 +80,25 @@ public class XMLReader {
         return this.rules;
     }
 
+    public ArrayList<Proposition> getTruth() {
+        if (this.truth == null) {
+            this.truth = new ArrayList<>();
+            List<Element> truthElements = this.root.getChild("truth").getChildren("proposition");
+            for (Element truthElement : truthElements) {
+                this.truth.add(this.getPropositions().get(truthElement.getAttributeValue("ref")));
+            }
+        }
+        return truth;
+    }
+
+    public ArrayList<Proposition> getError() {
+        if (this.error == null) {
+            this.error = new ArrayList<>();
+            List<Element> errorElements = this.root.getChild("error").getChildren("proposition");
+            for (Element errorElement : errorElements) {
+                this.error.add(this.getPropositions().get(errorElement.getAttributeValue("ref")));
+            }
+        }
+        return error;
+    }
 }
