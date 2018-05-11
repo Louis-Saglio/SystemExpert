@@ -22,11 +22,6 @@ public class XMLReader {
 
     public XMLReader(String file) throws JDOMException, IOException {
         this.root = new SAXBuilder().build(new File(file)).getRootElement();
-        this.getRules();
-        this.getTruth();
-        this.getError();
-        System.out.println(this.getTruth());
-        System.out.println(this.getError());
     }
 
     private HashMap<String, Property> getProperties() {

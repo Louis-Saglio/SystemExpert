@@ -23,4 +23,12 @@ public class Engine {
     public void setRules(Rules rules) {
         this.rules = rules;
     }
+
+    public ArrayList<Proposition> getTruth() {
+        return truth;
+    }
+
+    public ArrayList<Proposition> getError() {
+        return error;
+    }
 }
