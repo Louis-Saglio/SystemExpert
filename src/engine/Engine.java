@@ -8,8 +8,16 @@ public class Engine {
     private Rules rules;
 
     public void process() {
-        this.truth.addAll(this.rules.findNewTruePropositions(this.truth, this.error));
-        this.error.addAll(this.rules.findNewFalsePropositions(this.truth, this.error));
+        for (Proposition proposition : this.rules.findNewTruePropositions(this.truth, this.error)) {
+            if (!this.truth.contains(proposition)) {
+                this.truth.add(proposition);
+            }
+        }
+        for (Proposition proposition : this.rules.findNewFalsePropositions(this.truth, this.error)) {
+            if (!this.error.contains(proposition)) {
+                this.error.add(proposition);
+            }
+        }
     }
 
     public void setTruth(ArrayList<Proposition> truth) {
