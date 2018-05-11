@@ -6,10 +6,12 @@ public class Proposition {
 
     private Fact fact;
     private Boolean state;
+    private Boolean isFinal;
 
     public Proposition(Fact fact, Boolean state) {
         this.fact = fact;
         this.state = state;
+        this.isFinal = false;
     }
 
     public ArrayList<Proposition> getCorollaries() {
@@ -61,5 +63,9 @@ public class Proposition {
         }
         string += this.fact.getValue().getName();
         return string;
+    }
+
+    public Boolean isFinal() {
+        return isFinal;
     }
 }

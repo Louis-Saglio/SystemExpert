@@ -35,6 +35,29 @@ public class Engine {
         this.error.addAll(errors);
     }
 
+    public Proposition choosePropositionToAsk() {
+        for (Rule rule : rules) {
+            if (!rule.getMajors().isTrue(this.truth, this.error)) {
+                for (Proposition major : rule.getMajors()) {
+                    if (!truth.contains(major)) {
+                        return major;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Proposition> getFinals() {
+        ArrayList<Proposition> finals = new ArrayList<>();
+        for (Proposition proposition : truth) {
+            if (proposition.isFinal()) {
+                finals.add(proposition);
+            }
+        }
+        return finals;
+    }
+
     public void setTruth(ArrayList<Proposition> truth) {
         this.truth = truth;
     }

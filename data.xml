@@ -12,7 +12,7 @@
             <name>la couleur des cheveux</name>
             <values>
                 <value>blonde</value>
-                <value>brunne</value>
+                <value>brune</value>
                 <value>noire</value>
             </values>
         </property>
@@ -59,7 +59,7 @@
         </rule>
     </rules>
     <truth>
-        <proposition ref="ppst1"/>
+        <!--<proposition ref="ppst1"/>-->
         <proposition ref="ppst2"/>
     </truth>
     <error>
