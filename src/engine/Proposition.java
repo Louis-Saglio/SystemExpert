@@ -39,4 +39,16 @@ public class Proposition {
         Proposition proposition = (Proposition) o;
         return this.fact.equals(proposition.fact) && this.state.equals(proposition.state);
     }
+
+    @Override
+    public String toString() {
+        String string = this.fact.getProperty().getName();
+        if (this.state) {
+            string += " est ";
+        } else {
+            string += " n'est pas ";
+        }
+        string += this.fact.getValue().getName();
+        return string;
+    }
 }

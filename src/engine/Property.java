@@ -38,4 +38,15 @@ public class Property extends ArrayList<Value> {
         }
         return true;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Property{" +
+                "name='" + name + '\'' + super.toString() +
+                '}';
+    }
 }

@@ -17,6 +17,10 @@ public class Value {
         return this.name.equals(value.name);
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return "Value{" + "id=" + ", name='" + name + '\'' + '}';
