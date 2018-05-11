@@ -1,0 +1,67 @@
+<data>
+    <properties>
+        <property id="pprt1">
+            <name>la taille</name>
+            <values>
+                <value>grande</value>
+                <value>moyenne</value>
+                <value>petite</value>
+            </values>
+        </property>
+        <property id="pprt2">
+            <name>la couleur des cheveux</name>
+            <values>
+                <value>blonde</value>
+                <value>brunne</value>
+                <value>noire</value>
+            </values>
+        </property>
+        <property id="pprt3">
+            <name>la race</name>
+            <values>
+                <value>aryienne</value>
+                <value>celtique</value>
+            </values>
+        </property>
+    </properties>
+    <propositions>
+        <proposition id="ppst1">
+            <fact>
+                <property ref="pprt1"/>
+                <value ref="0"/>
+            </fact>
+            <state>true</state>
+        </proposition>
+        <proposition id="ppst2">
+            <fact>
+                <property ref="pprt2"/>
+                <value ref="0"/>
+            </fact>
+            <state>true</state>
+        </proposition>
+        <proposition id="ppst3">
+            <fact>
+                <property ref="pprt3"/>
+                <value ref="0"/>
+            </fact>
+            <state>true</state>
+        </proposition>
+    </propositions>
+    <rules>
+        <rule>
+            <majors>
+                <major ref="ppst1"/>
+                <major ref="ppst2"/>
+            </majors>
+            <conclusions>
+                <conclusion ref="ppst3"/>
+            </conclusions>
+        </rule>
+    </rules>
+    <truth>
+        <proposition ref="ppst1"/>
+        <proposition ref="ppst2"/>
+    </truth>
+    <error>
+    </error>
+</data>
