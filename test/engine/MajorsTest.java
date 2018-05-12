@@ -2,9 +2,10 @@ package engine;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MajorsTest {
 
@@ -18,13 +19,13 @@ class MajorsTest {
         Majors majors = new Majors();
         majors.add(p1);
 
-        assertFalse(majors.isTrue(new ArrayList<>(), new ArrayList<>()));
+        assertFalse(majors.isTrue(new HashSet<>(), new HashSet<>()));
 
-        ArrayList<Proposition> truth = new ArrayList<>();
+        HashSet<Proposition> truth = new HashSet<>();
         truth.add(p1);
-        assertTrue(majors.isTrue(truth, new ArrayList<>()));
+        assertTrue(majors.isTrue(truth, new HashSet<>()));
 
-        ArrayList<Proposition> error = new ArrayList<>();
+        HashSet<Proposition> error = new HashSet<>();
         error.add(p2);
         majors.add(p2);
         assertFalse(majors.isTrue(truth, error));
