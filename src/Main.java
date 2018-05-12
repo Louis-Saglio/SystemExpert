@@ -14,14 +14,11 @@ public class Main {
         engine.setRules(xmlReader.getRules());
         engine.setTruth(xmlReader.getTruth());
         engine.setError(xmlReader.getError());
+        engine.process();
 
-        while (engine.getFinals().size() == 0) {
-            engine.process();
-            Proposition toBeAsked = engine.choosePropositionToAsk();
-            if (toBeAsked == null) {
-                System.out.println("Toutes les règles ont été validées.");
-                break;
-            }
+        Proposition toBeAsked = null;
+        while (engine.getFinals().size() == 0 && toBeAsked == null) {
+            toBeAsked = engine.choosePropositionToAsk();
             System.out.println("Est-ce que " + toBeAsked.toString() + " ?  (y/n)");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
@@ -30,6 +27,7 @@ public class Main {
             } else if (input.equals("n")) {
                 engine.getError().add(toBeAsked);
             }
+            engine.process();
         }
         if (engine.getFinals().size() != 0) {
             System.out.println("Terminé. Voici la ou les réponse(s)");
