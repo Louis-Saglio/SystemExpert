@@ -31,6 +31,7 @@
                 <value ref="0"/>
             </fact>
             <state>true</state>
+            <final>false</final>
         </proposition>
         <proposition id="ppst2">
             <fact>
@@ -38,6 +39,7 @@
                 <value ref="0"/>
             </fact>
             <state>true</state>
+            <final>false</final>
         </proposition>
         <proposition id="ppst3">
             <fact>
@@ -45,6 +47,7 @@
                 <value ref="0"/>
             </fact>
             <state>true</state>
+            <final>true</final>
         </proposition>
     </propositions>
     <rules>

@@ -48,7 +48,11 @@ public class XMLReader {
                 Property property = this.getProperties().get(factElement.getChild("property").getAttributeValue("ref"));
                 int valueIndex = Integer.parseInt(factElement.getChild("value").getAttributeValue("ref"));
                 Fact fact = new Fact(property, property.get(valueIndex));
-                Proposition proposition = new Proposition(fact, propositionElement.getChild("state").getValue().equals("true"));
+                Proposition proposition = new Proposition(
+                        fact,
+                        propositionElement.getChild("state").getValue().equals("true"),
+                        propositionElement.getChild("final").getValue().equals("true")
+                );
                 this.propositions.put(propositionElement.getAttributeValue("id"), proposition);
             }
         }

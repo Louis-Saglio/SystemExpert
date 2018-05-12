@@ -8,10 +8,14 @@ public class Proposition {
     private Boolean state;
     private Boolean isFinal;
 
-    public Proposition(Fact fact, Boolean state) {
+    public Proposition(Fact fact, Boolean state, Boolean isFinal) {
         this.fact = fact;
         this.state = state;
-        this.isFinal = false;
+        this.isFinal = isFinal;
+    }
+
+    public Proposition(Fact fact, Boolean state) {
+        this(fact, state, false);
     }
 
     public ArrayList<Proposition> getCorollaries() {

@@ -31,5 +31,13 @@ public class Main {
                 engine.getError().add(toBeAsked);
             }
         }
+        if (engine.getFinals().size() != 0) {
+            System.out.println("Terminé. Voici la ou les réponse(s)");
+            for (Proposition final_ : engine.getFinals()) {
+                System.out.println(final_);
+            }
+        } else {
+            System.out.println("Toutes les règles ont été validées et nous n'avons pas pu aboutir à une conclusion");
+        }
     }
 }
