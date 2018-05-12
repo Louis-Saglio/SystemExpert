@@ -25,7 +25,6 @@ public class Main {
             System.out.println("Est-ce que " + toBeAsked.toString() + " ?  (y/n)");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
-            System.out.println(input);
             if (input.equals("y")) {
                 engine.getTruth().add(toBeAsked);
             } else if (input.equals("n")) {

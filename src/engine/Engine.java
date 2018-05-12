@@ -26,11 +26,9 @@ public class Engine {
 
     public Proposition choosePropositionToAsk() {
         for (Rule rule : rules) {
-            if (!rule.getMajors().isTrue(this.truth, this.error)) {
-                for (Proposition major : rule.getMajors()) {
-                    if (!truth.contains(major)) {
-                        return major;
-                    }
+            for (Proposition major : rule.getMajors()) {
+                if (!this.truth.contains(major) && !this.error.contains(major)) {
+                    return major;
                 }
             }
         }
@@ -39,7 +37,7 @@ public class Engine {
 
     public ArrayList<Proposition> getFinals() {
         ArrayList<Proposition> finals = new ArrayList<>();
-        for (Proposition proposition : truth) {
+        for (Proposition proposition : this.truth) {
             if (proposition.isFinal()) {
                 finals.add(proposition);
             }
@@ -60,10 +58,10 @@ public class Engine {
     }
 
     public HashSet<Proposition> getTruth() {
-        return truth;
+        return this.truth;
     }
 
     public HashSet<Proposition> getError() {
-        return error;
+        return this.error;
     }
 }
