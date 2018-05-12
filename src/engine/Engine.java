@@ -1,36 +1,25 @@
 package engine;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Engine {
 
-    private ArrayList<Proposition> truth, error;
+    private HashSet<Proposition> truth, error;
     private Rules rules;
 
     public void process() {
-        for (Proposition proposition : this.rules.manageConclusions(this.truth, this.error)) {
-            if (!this.truth.contains(proposition)) {
-                this.truth.add(proposition);
-            }
-        }
+        this.truth.addAll(this.rules.manageConclusions(this.truth, this.error));
 
-        ArrayList<Proposition> news = new ArrayList<>();
+        HashSet<Proposition> news = new HashSet<>();
         for (Proposition proposition : this.truth) {
-            for (Proposition corollary : proposition.getCorollaries()) {
-                if (!this.truth.contains(corollary) && !news.contains(corollary)) {
-                    news.add(corollary);
-                }
-            }
+            news.addAll(proposition.getCorollaries());
         }
         this.truth.addAll(news);
 
-        ArrayList<Proposition> errors = new ArrayList<>();
+        HashSet<Proposition> errors = new HashSet<>();
         for (Proposition proposition : this.truth) {
-            for (Proposition contrary : proposition.getContraries()) {
-                if (!this.error.contains(contrary) && !errors.contains(contrary)) {
-                    errors.add(contrary);
-                }
-            }
+            errors.addAll(proposition.getContraries());
         }
         this.error.addAll(errors);
     }
@@ -58,11 +47,11 @@ public class Engine {
         return finals;
     }
 
-    public void setTruth(ArrayList<Proposition> truth) {
+    public void setTruth(HashSet<Proposition> truth) {
         this.truth = truth;
     }
 
-    public void setError(ArrayList<Proposition> error) {
+    public void setError(HashSet<Proposition> error) {
         this.error = error;
     }
 
@@ -70,11 +59,11 @@ public class Engine {
         this.rules = rules;
     }
 
-    public ArrayList<Proposition> getTruth() {
+    public HashSet<Proposition> getTruth() {
         return truth;
     }
 
-    public ArrayList<Proposition> getError() {
+    public HashSet<Proposition> getError() {
         return error;
     }
 }

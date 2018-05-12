@@ -7,15 +7,14 @@ import org.jdom2.input.SAXBuilder;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 public class XMLReader {
     
     private Rules rules;
-    private ArrayList<Proposition> truth;
-    private ArrayList<Proposition> error;
+    private HashSet<Proposition> truth, error;
     private Element root;
     private HashMap<String, Property> properties;
     private HashMap<String, Proposition> propositions;
@@ -75,25 +74,25 @@ public class XMLReader {
         return this.rules;
     }
 
-    public ArrayList<Proposition> getTruth() {
+    public HashSet<Proposition> getTruth() {
         if (this.truth == null) {
-            this.truth = new ArrayList<>();
+            this.truth = new HashSet<>();
             List<Element> truthElements = this.root.getChild("truth").getChildren("proposition");
             for (Element truthElement : truthElements) {
                 this.truth.add(this.getPropositions().get(truthElement.getAttributeValue("ref")));
             }
         }
-        return truth;
+        return this.truth;
     }
 
-    public ArrayList<Proposition> getError() {
+    public HashSet<Proposition> getError() {
         if (this.error == null) {
-            this.error = new ArrayList<>();
+            this.error = new HashSet<>();
             List<Element> errorElements = this.root.getChild("error").getChildren("proposition");
             for (Element errorElement : errorElements) {
                 this.error.add(this.getPropositions().get(errorElement.getAttributeValue("ref")));
             }
         }
-        return error;
+        return this.error;
     }
 }
