@@ -1,26 +1,26 @@
 <data>
     <properties>
         <property id="pprt1">
-            <name>la taille</name>
+            <name>la température corporelle</name>
             <values>
-                <value>grande</value>
-                <value>moyenne</value>
-                <value>petite</value>
+                <value>froide</value>
+                <value>normale</value>
+                <value>chaude</value>
             </values>
         </property>
         <property id="pprt2">
-            <name>la couleur des cheveux</name>
+            <name>l'éclat des yeux</name>
             <values>
-                <value>blonde</value>
-                <value>brune</value>
-                <value>noire</value>
+                <value>terne</value>
+                <value>normal</value>
+                <value>brillant</value>
             </values>
         </property>
         <property id="pprt3">
-            <name>la race</name>
+            <name>la maladie</name>
             <values>
-                <value>aryienne</value>
-                <value>celtique</value>
+                <value>grippe</value>
+                <value>rhinopharyngite</value>
             </values>
         </property>
     </properties>
@@ -28,7 +28,7 @@
         <proposition id="ppst1">
             <fact>
                 <property ref="pprt1"/>
-                <value ref="0"/>
+                <value ref="2"/>
             </fact>
             <state>true</state>
             <final>false</final>
@@ -36,7 +36,7 @@
         <proposition id="ppst2">
             <fact>
                 <property ref="pprt2"/>
-                <value ref="0"/>
+                <value ref="2"/>
             </fact>
             <state>true</state>
             <final>false</final>
@@ -63,7 +63,7 @@
     </rules>
     <truth>
         <!--<proposition ref="ppst1"/>-->
-        <proposition ref="ppst2"/>
+        <!--<proposition ref="ppst2"/>-->
     </truth>
     <error>
     </error>
