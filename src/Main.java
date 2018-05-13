@@ -16,9 +16,8 @@ public class Main {
         engine.setError(xmlReader.getError());
         engine.process();
 
-        Proposition toBeAsked = null;
-        while (engine.getFinals().size() == 0 && toBeAsked == null) {
-            toBeAsked = engine.choosePropositionToAsk();
+        Proposition toBeAsked = engine.choosePropositionToAsk();
+        while (engine.getFinals().size() == 0 && toBeAsked != null) {
             System.out.println("Est-ce que " + toBeAsked.toString() + " ?  (y/n)");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
@@ -28,6 +27,7 @@ public class Main {
                 engine.getError().add(toBeAsked);
             }
             engine.process();
+            toBeAsked = engine.choosePropositionToAsk();
         }
         if (engine.getFinals().size() != 0) {
             System.out.println("Terminé. Voici la ou les réponse(s)");
@@ -37,5 +37,7 @@ public class Main {
         } else {
             System.out.println("Toutes les règles ont été validées et nous n'avons pas pu aboutir à une conclusion");
         }
+//        System.out.println(engine.getTruth());
+//        System.out.println(engine.getError());
     }
 }
